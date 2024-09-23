@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GB Times - Your Source for News</title>
+    <link href="https://fonts.googleapis.com/css2?family=Geometric+Sans+Serif&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            color: #444;
+            line-height: 1.6;
+        }
+        header {
+            background-color: #283593;
+            color: white;
+            padding: 15px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        }
+        header .logo {
+            font-size: 28px;
+            font-weight: bold;
+        }
+        nav a {
+            color: white;
+            margin: 0 10px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s;
+        }
+        nav a:hover {
+            color: #ffca28;
+        }
+        .hero {
+            background-image: url('hero-image.jpg'); /* Replace with your image path */
+            height: 400px;
+            background-size: cover;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-align: center;
+            position: relative;
+        }
+        .hero::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.6);
+            z-index: 1;
+        }
+        .hero h1 {
+            font-size: 48px;
+            margin: 0;
+            z-index: 2;
+        }
+        .hero button {
+            padding: 12px 25px;
+            background: linear-gradient(90deg, #ffca28, #ff9800);
+            color: #283593;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+            z-index: 2;
+            transition: background 0.3s, transform 0.3s;
+        }
+        .hero button:hover {
+            transform: scale(1.05);
+        }
+        .container {
+            max-width: 1200px;
+            margin: 20px auto;
+            padding: 20px;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        section {
+            margin: 20px 0;
+        }
+        h2 {
+            border-bottom: 2px solid #283593;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+            color: #283593;
+            font-weight: 700;
+        }
+        .article-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+        }
+        .article {
+            background: #ffffff;
+            border-radius: 8px;
+            padding: 15px;
+            transition: transform 0.3s, box-shadow 0.3s;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        .article:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+        .article img {
+            max-width: 100%;
+            border-radius: 8px;
+        }
+        .footer {
+            text-align: center;
+            padding: 20px;
+            background-color: #283593;
+            color: white;
+        }
+        .footer-links {
+            margin: 10px 0;
+        }
+        .footer-links a {
+            color: white;
+            text-decoration: none;
+            margin: 0 10px;
+            transition: color 0.3s;
+        }
+        .footer-links a:hover {
+            color: #ffca28;
+        }
+        .subscribe-section {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .subscribe-section input[type="email"] {
+            padding: 10px;
+            width: 100%;
+            max-width: 400px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            margin-right: 10px;
+        }
+        .subscribe-section button {
+            padding: 10px 15px;
+            border: none;
+            border-radius: 5px;
+            background-color: #ffca28;
+            color: #283593;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        .subscribe-section button:hover {
+            background-color: #ffd54f;
+        }
+        .social-icons {
+            margin: 10px 0;
+        }
+        .social-icons a {
+            margin: 0 10px;
+            color: #fff;
+            font-size: 20px;
+            transition: color 0.3s;
+        }
+        .social-icons a:hover {
+            color: #ffca28;
+        }
+        /* Responsive Styles */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 32px;
+            }
+            .subscribe-section {
+                flex-direction: column;
+            }
+            .subscribe-section input[type="email"] {
+                margin-bottom: 10px;
+                max-width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="logo">GB Times</div>
+    <nav>
+        <a href="#home">Home</a>
+        <a href="#featured-articles">Articles</a>
+        <a href="#about">About</a>
+        <a href="#contact">Contact</a>
+        <a href="#categories">Categories</a>
+        <a href="#subscribe">Subscribe</a>
+    </nav>
+</header>
+
+<div class="hero">
+    <h1>Welcome to GB Times</h1>
+    <button aria-label="Subscribe Now" onclick="subscribe()">Subscribe Now</button>
+</div>
+
+<div class="container">
+    <section id="about">
+        <h2>About GB Times</h2>
+        <p>GB Times is your trusted source for the latest news, in-depth analysis, and insightful articles on a variety of topics. Our mission is to keep you informed and engaged with accurate and timely information.</p>
+    </section>
+
+    <section id="featured-articles">
+        <h2>Featured Articles</h2>
+        <div class="article-list">
+            <div class="article">
+                <h3>Featured Article 1</h3>
+                <img src="featured1.jpg" alt="Description of Featured Article 1">
+                <p>This is a summary of the featured article 1. It provides insight into the latest trends.</p>
+            </div>
+            <div class="article">
+                <h3>Featured Article 2</h3>
+                <img src="featured2.jpg" alt="Description of Featured Article 2">
+                <p>This is a summary of the featured article 2. It discusses significant events.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="popular-articles">
+        <h2>Popular Articles</h2>
+        <div class="article-list">
+            <div class="article">
+                <h3>Popular Article 1</h3>
+                <img src="popular1.jpg" alt="Description of Popular Article 1">
+                <p>This article explores trending topics in depth.</p>
+            </div>
+            <div class="article">
+                <h3>Popular Article 2</h3>
+                <img src="popular2.jpg" alt="Description of Popular Article 2">
+                <p>This article discusses current events that matter.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="latest-articles">
+        <h2>Latest Articles</h2>
+        <div class="article-list">
+            <div class="article">
+                <h3>Latest Article 1</h3>
+                <img src="latest1.jpg" alt="Description of Latest Article 1">
+                <p>Latest Article 1 discusses the recent developments in technology.</p>
+            </div>
+            <div class="article">
+                <h3>Latest Article 2</h3>
+                <img src="latest2.jpg" alt="Description of Latest Article 2">
+                <p>Latest Article 2 covers important updates in global politics.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="newsletter">
+        <h2>Subscribe to Our Newsletter</h2>
+        <div class="subscribe-section">
+            <input type="email" placeholder="Enter your email" id="email" aria-label="Email for newsletter subscription">
+            <button aria-label="Subscribe to newsletter" onclick="subscribe()">Subscribe</button>
+        </div>
+    </section>
+
+    <section id="contact">
+        <h2>Contact Us</h2>
+        <p>For inquiries, you can reach us via our social media channels:</p>
+        <div class="social-icons">
+            <a href="https://www.facebook.com/gbtimes" target="_blank"><i class="fab fa-facebook"></i></a>
+            <a href="https://www.twitter.com/gbtimes" target="_blank"><i class="fab fa-twitter"></i></a>
+            <a href="https://www.instagram.com/gbtimes" target="_blank"><i class="fab fa-instagram"></i></a>
+            <a href="https://www.linkedin.com/company/gbtimes" target="_blank"><i class="fab fa-linkedin"></i></a>
+            <a href="https://www.tiktok.com/@gbtimes" target="_blank"><i class="fab fa-tiktok"></i></a>
+        </div>
+        <p>Or download our app <strong>GB Time</strong> for more updates!</p>
+    </section>
+</div>
+
+<footer class="footer">
+    <div class="social-icons">
+        <a href="https://www.facebook.com/gbtimes" target="_blank"><i class="fab fa-facebook"></i></a>
+        <a href="https://www.twitter.com/gbtimes" target="_blank"><i class="fab fa-twitter"></i></a>
+        <a href="https://www.instagram.com/gbtimes" target="_blank"><i class="fab fa-instagram"></i></a>
+        <a href="https://www.linkedin.com/company/gbtimes" target="_blank"><i class="fab fa-linkedin"></i></a>
+        <a href="https://www.tiktok.com/@gbtimes" target="_blank"><i class="fab fa-tiktok"></i></a>
+    </div>
+    <p>&copy; 2024 GB Times. All rights reserved.</p>
+    <p>Email: <a href="mailto:contact@gbtimes.com" style="color: white;">contact@gbtimes.com</a> | Phone: +1 (234) 567-8901</p>
+    <div class="footer-links">
+        <a href="#privacy">Privacy Policy</a> | 
+        <a href="#terms">Terms of Service</a>
+    </div>
+</footer>
+
+<script>
+    function subscribe() {
+        const email = document.getElementById('email').value;
+        const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (emailPattern.test(email)) {
+            alert(`Subscribed with ${email}`);
+            document.getElementById('email').value = '';
+        } else {
+            alert('Please enter a valid email address.');
+        }
+    }
+</script>
+
+</body>
+</html>
